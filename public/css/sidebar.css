@@ -1,0 +1,78 @@
+.sidebar {
+  margin-top: 86px;
+  width: 250px;
+  min-width: 250px;
+  background-color: black;
+  border: 2px solid #ba2ecc;
+  border-right: 0px;
+  border-top: 2px solid black;
+  height: 100%;
+  top: 0;
+  position: fixed;
+  left: 0;
+  height: 100%;
+  z-index: 100;
+  text-align: center;
+  color: white;
+}
+
+/* Sidebar links */
+.sidebar p {
+  color: white;
+  text-decoration: none;
+}
+
+/* Active/current link */
+.sidebar a.active {
+  background-color: #ba2ecc;
+  color: white;
+}
+
+/* Links on mouse-over */
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+/* Estilo para los elementos select en la barra lateral */
+.sidebar select {
+  width: 80%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #f0f0f0;
+  
+}
+
+.sidebar h3{
+  text-align: center;
+}
+.sidebar input {
+  border: 0;
+  background: none;
+  text-align: center;
+  border: 2px solid #ba2ecc;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+.sidebar input:hover {
+  background: #ba2ecc;
+}
+
+li{
+  list-style: none;
+}
+
+h3{
+  margin-top: 10px;
+}

@@ -1,0 +1,95 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: white;
+}
+
+.form-box {
+    width: 300px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #191919;
+    text-align: center;
+}
+
+.form-box input[type="text"], .form-box input[type="email"], .form-box input[type="password"], .form-box input[type="number"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #ba2ecc;
+    padding: 10px 10px;
+    width: 200px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+}
+
+.form-box input[type="text"]:focus, .form-box input[type="email"]:focus, .form-box input[type="password"]:focus, .form-box input[type="number"]:focus {
+    width: 280px;
+    border-color: #2e78cc;
+}
+
+.form-box button {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #ba2ecc;
+    padding: 14px 40px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+}
+
+.form-box button:hover {
+    background: #ba2ecc;
+}
+
+.register {
+    color: white;
+}
+
+a{
+    color: #3498db;
+    text-decoration: none;
+}
+
+label, h2{
+    color: white;
+}
+.fileupload{
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    background-color: #e6bbfa;
+    color: #ba2ecc;
+    border: 1px solid #ba2ecc;
+    border-radius: 5px;
+    text-align: center;
+}
+.fileupload:hover{
+    background-color: #ba2ecc;
+    color: #e6bbfa;
+}
+.filebox{
+    display: none;
+}
+
+body{
+
+    font-family: sans-serif;
+    margin: 0;
+}
+
+.error{
+    color: red;
+}
