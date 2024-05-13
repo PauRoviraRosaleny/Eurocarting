@@ -3,6 +3,9 @@
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="{{asset('css/create.css')}}">
+
 <script>
     function previewImage(event) {
         var reader = new FileReader();
@@ -18,7 +21,7 @@
         <div class="col-md-6">
             <form class="row" method="post" action="{{route('edit.update', $car->id)}}" enctype="multipart/form-data">
                 @csrf
-                <div class="col-md-6 mt-3" >
+                <div class="col-md-6 mt-3">
                     <div class="form-group" style="margin-top: 100px">
                         <div class="input-group" style="border: 2px solid #ced4da; border-radius: 0.25rem;">
                             <label for="image" style="cursor: pointer;">
@@ -32,78 +35,78 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="account-fn">Model</label>
+                                <label for="account-fn">Modelo</label>
                                 <input class="form-control" type="text" id="account-fn" name="model" value="{{ $car->model}}" required="">
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="account-fn">Brand</label>
+                                <label for="account-fn">Marca</label>
                                 <input class="form-control" type="text" id="account-fn" name="brand" value="{{ $car->brand}}" required="">
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="account-fn">Price</label>
+                                <label for="account-fn">Precio</label>
                                 <input class="form-control" type="number" id="account-fn" name="price" value="{{ $car->price}}" required="">
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="account-fn">Seats</label>
+                                <label for="account-fn">Plazas</label>
                                 <input class="form-control" type="number" id="account-fn" name="seats" value="{{ $car->seats}}" required="">
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="account-fn">Doors</label>
+                                <label for="account-fn">Puertas</label>
                                 <input class="form-control" type="number" id="account-fn" name="doors" value="{{ $car->doors}}" required="">
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="account-fn">Bags</label>
+                                <label for="account-fn">Bolsas</label>
                                 <input class="form-control" type="number" id="account-fn" name="bags" value="{{ $car->bags}}" required="">
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="engine">Engine</label>
+                                <label for="engine">Motor</label>
                                 <select class="form-select" id="engine" name="engine" >
-                                    <option value="" disabled selected>Select an engine type</option>
-                                    <option value="Gasoline">Gasoline</option>
-                                    <option value="Diesel">Diesel</option>
-                                    <option value="Electric">Electric</option>
+                                    <option value="" disabled>Selecciona un tipo de motor</option>
+                                    <option value="Gasoline" {{ $car->engine === 'Gasoline' ? 'selected' : '' }}>Gasolina</option>
+                                    <option value="Diesel" {{ $car->engine === 'Diesel' ? 'selected' : '' }}>Diesel</option>
+                                    <option value="Electric" {{ $car->engine === 'Electric' ? 'selected' : '' }}>Eléctrico</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="transmission">Transmission</label>
+                                <label for="transmission">Transmisión</label>
                                 <select class="form-select" id="transmission" name="transmission">
-                                    <option value="" disabled selected>Select a transmission</option>
-                                    <option value="Manual">Manual</option>
-                                    <option value="Automatic">Automatic</option>
+                                    <option value="" disabled>Selecciona una transmisión</option>
+                                    <option value="Manual" {{ $car->transmission === 'Manual' ? 'selected' : '' }}>Manual</option>
+                                    <option value="Automatic" {{ $car->transmission === 'Automatic' ? 'selected' : '' }}>Automática</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="transmission">Air-conditioning</label>
+                                <label for="air_conditioning">Aire acondicionado</label>
                                 <select class="form-select" id="air_conditioning" name="air_conditioning">
-                                    <option value="" disabled selected>Select an option</option>
-                                    <option value="0">Yes</option>
-                                    <option value="1">No</option>
+                                    <option value="" disabled>Selecciona una opción</option>
+                                    <option value="0" {{ $car->air_conditioning == 0 ? 'selected' : '' }}>Si</option>
+                                    <option value="1" {{ $car->air_conditioning == 1 ? 'selected' : '' }}>No</option>
                                 </select>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-12">
                     <hr class="mt-2 mb-3">
                     <div class="d-flex flex-wrap justify-content-between align-items-center">
-                        <button class="btn btn-style-1 btn-primary" type="submit" data-toast="" data-toast-position="topRight" data-toast-type="success" data-toast-icon="fe-icon-check-circle" data-toast-title="Success!" data-toast-message="Your profile updated successfuly.">Update car</button>
+                        <button class="btn btn-style-1 btn-danger" type="submit" data-toast="" data-toast-position="topRight" data-toast-type="success" data-toast-icon="fe-icon-check-circle" data-toast-title="Success!" data-toast-message="Your profile updated successfuly.">Actualizar Vehículo</button>
                     </div>
                 </div>
 

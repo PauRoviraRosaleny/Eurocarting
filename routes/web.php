@@ -15,10 +15,10 @@ use App\Http\Controllers\PaypalController;
 |
 */
 
-
 Route::get('/', [HomeController::class, "index"])->name("index");
 Route::get('/index', [HomeController::class, "index"])->name("index");
-Route::get('/index/filtered', [HomeController::class, "search"])->name("search");
+Route::get('/cars', [HomeController::class, "searchCars"])->name("searchCars");
+Route::get('/cars/filtered', [HomeController::class, "searchFilters"])->name("searchFilters");
 
 Route::get('/login', [HomeController::class, "login"])->name("login");
 Route::post('/login', [HomeController::class, "checkLogin"])->name("log");
@@ -41,6 +41,11 @@ Route::get('/account', [HomeController::class, "account"])->name("account")->mid
 Route::get('/settings', [HomeController::class, "settings"])->name("settings")->middleware('auth');
 Route::post('/settings', [HomeController::class, "updateUser"])->name("settings.update")->middleware('auth');
 
+Route::get('/contact', [HomeController::class, "contact"])->name("contact");
+Route::post('/contact', [HomeController::class, 'send'])->name('contact.send');
+
 Route::post('/paypal/payment/{id}', [PaypalController::class, "payment"])->name('payment');
 Route::get('/success', [PaypalController::class, 'success'])->name('success')->middleware('auth');
 Route::get('/paypal/cancel', [PaypalController::class, "cancel"])->name('cancel');
+
+

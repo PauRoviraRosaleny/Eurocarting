@@ -1,0 +1,9 @@
+.footer {
+    position: fixed; /* Fija la posición del footer */
+    left: 0; /* Lo alinea a la izquierda */
+    bottom: 0; /* Lo sitúa en la parte inferior */
+    width: 100%; /* Ocupa todo el ancho */
+    text-align: center; /* Alinea el contenido al centro */
+    background-color: #f8f9fa; /* Cambia el color de fondo si es necesario */
+    padding: 20px 0; /* Añade un poco de espacio alrededor del contenido */
+}

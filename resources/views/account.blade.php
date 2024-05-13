@@ -15,7 +15,7 @@
         <div class="col-lg-4 pb-5">
             <!-- Account Sidebar-->
             <div class="author-card pb-3">
-                
+
                 <div class="author-card-profile" style="">
                     <div class="author-card-avatar"><img src="{{Asset(Auth::user()->image)}}" alt="">
                     </div>
@@ -29,14 +29,14 @@
                     <a class="list-group-item active" href="#">
                         <div class="d-flex justify-content-between align-items-center">
                             <div><i class="bi bi-bag mr-1 text-muted"></i>
-                                <div class="d-inline-block font-weight-medium text-uppercase">Orders List</div>
+                                <div class="d-inline-block font-weight-medium text-uppercase">Lista de pedidos</div>
                             </div><span class="badge badge-secondary">6</span>
                         </div>
-                    </a><a class="list-group-item" href="{{route('settings')}}"><i class="bi bi-person text-muted"></i>Profile Settings</a>
+                    </a><a class="list-group-item" href="{{route('settings')}}"><i class="bi bi-person text-muted"></i>Ajustes del perfil</a>
                     <a class="list-group-item" href="{{route('logout')}}" tagert="__blank">
                         <div class="d-flex justify-content-between align-items-center">
                             <div><i class="bi bi-box-arrow-left mr-1 text-muted"></i>
-                                <div class="d-inline-block font-weight-medium text-uppercase">Logout</div>
+                                <div class="d-inline-block font-weight-medium text-uppercase">Cerrar sesión</div>
                             </div><span class="badge badge-secondary">3</span>
                         </div>
                     </a>
@@ -47,34 +47,34 @@
         <div class="col-lg-8 pb-5">
             <div class="d-flex justify-content-end pb-3">
                 <div class="form-inline">
-                    <label class="text-muted mr-3" for="order-sort">Sort Orders</label>
+                    <label class="text-muted mr-3" for="order-sort">Filtrar pedidos</label>
                     <select class="form-control" id="order-sort" onchange="filterLoans()">
-                        <option value="all">All</option>
-                        <option value="active">Active</option>
-                        <option value="inactive">Inactive</option>
+                        <option value="all">Todos</option>
+                        <option value="active">Activos</option>
+                        <option value="inactive">Inactivos</option>
                     </select>
-                    
+
                 </div>
             </div>
             <div class="table-responsive">
                 <table class="table table-hover mb-0">
                     <thead>
                         <tr>
-                            <th>Order #</th>
-                            <th>Start date</th>
-                            <th>End date</th>
-                            <th>Car</th>
-                            <th>Status</th>
-                            
+                            <th>Pedido #</th>
+                            <th>Fecha de recogida</th>
+                            <th>Fecha de devolución</th>
+                            <th>Vehiculo</th>
+                            <th>Estado</th>
+
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($loans as $loan)
                         @csrf
-                        
+
 
                         <tr>
-                            <td><a class="navi-link" href="#order-details" data-toggle="modal">{{$loan->id}}</a></td>
+                            <td><a class="navi-link" href="#order-details" data-toggle="modal" style="color: #83072D; font-weight: bold">{{$loan->id}}</a></td>
                             <td>{{$loan->start_date }}</td>
                             <td><span>{{$loan->end_date }}</span></td>
                             <td><span>{{$loan->car_name}}</span></td>

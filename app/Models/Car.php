@@ -29,5 +29,9 @@ class Car extends Model
         'image',
         'rented'
     ];
-    
+
+    public function loans()
+    {
+        return $this->hasMany(Loan::class);
+    }
 }

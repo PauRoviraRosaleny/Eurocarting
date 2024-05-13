@@ -15,7 +15,7 @@
         <div class="col-lg-4 pb-5">
             <!-- Account Sidebar-->
             <div class="author-card pb-3">
-                
+
                 <div class="author-card-profile">
                     <div class="author-card-avatar"><img src="{{Asset(Auth::user()->image)}}" alt="">
                     </div>
@@ -29,14 +29,14 @@
                     <a class="list-group-item" href="{{route('account')}}">
                         <div class="d-flex justify-content-between align-items-center">
                             <div><i class="bi bi-bag mr-1 text-muted"></i>
-                                <div class="d-inline-block font-weight-medium text-uppercase">Orders List</div>
+                                <div class="d-inline-block font-weight-medium text-uppercase">Lista de pedidos</div>
                             </div><span class="badge badge-secondary">6</span>
                         </div>
-                    </a><a class="list-group-item active" ><i class="bi bi-person text-muted"></i>Profile Settings</a>
+                    </a><a class="list-group-item active" ><i class="bi bi-person text-muted"></i>Ajustes del perfil</a>
                     <a class="list-group-item" href="{{route('logout')}}" tagert="__blank">
                         <div class="d-flex justify-content-between align-items-center">
                             <div><i class="bi bi-box-arrow-left mr-1 text-muted"></i>
-                                <div class="d-inline-block font-weight-medium text-uppercase">Logout</div>
+                                <div class="d-inline-block font-weight-medium text-uppercase">Cerrar Sesión</div>
                             </div><span class="badge badge-secondary">3</span>
                         </div>
                     </a>
@@ -44,43 +44,43 @@
             </div>
         </div>
         <!-- Profile Settings-->
-        <div class="col-lg-8 pb-5">
+        <div class="col-lg-8 pb-5" style="margin-top: 70px">
             <form class="row" method="post" action="{{route('settings.update')}}">
                 @csrf
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="account-fn">Name</label>
+                        <label for="account-fn">Nombre</label>
                         <input class="form-control" type="text" id="account-fn" name="name" value="{{Auth::user()->name}}" required="">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="account-email">E-mail Address</label>
+                        <label for="account-email">E-mail</label>
                         <input class="form-control" type="email" id="account-email" name="email" value="{{Auth::user()->email}}" disabled="">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="account-phone">Phone Number</label>
+                        <label for="account-phone">Número de teléfono</label>
                         <input class="form-control" type="text" id="account-phone" name="phone" value="{{Auth::user()->phone}}" required="">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="account-pass">New Password</label>
+                        <label for="account-pass">Nueva Contraseña</label>
                         <input class="form-control" type="password" id="account-pass" name="password">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="account-confirm-pass">Confirm Password</label>
+                        <label for="account-confirm-pass">Confirmar Contraseña</label>
                         <input class="form-control" type="password" id="account-confirm-pass" name="password_confirmation">
                     </div>
                 </div>
                 <div class="col-12">
                     <hr class="mt-2 mb-3">
                     <div class="d-flex flex-wrap justify-content-between align-items-center">
-                        <button class="btn btn-style-1 btn-primary" type="submit" data-toast="" data-toast-position="topRight" data-toast-type="success" data-toast-icon="fe-icon-check-circle" data-toast-title="Success!" data-toast-message="Your profile updated successfuly.">Update Profile</button>
+                        <button class="btn btn-style-1 btn-danger" type="submit" data-toast="" data-toast-position="topRight" data-toast-type="success" data-toast-icon="fe-icon-check-circle" data-toast-title="Success!" data-toast-message="Your profile updated successfuly.">Actualizar Perfil</button>
                     </div>
                 </div>
             </form>

@@ -1,5 +1,5 @@
 body{
-    background:#eee;    
+    background:#eee;
 }
 .widget-author {
   margin-bottom: 58px;
@@ -106,7 +106,7 @@ body{
 .list-group-item.active:not(.disabled) {
     border-color: #e7e7e7;
     background: #fff;
-    color: #ac32e4;
+    color: #83072D;
     cursor: default;
     pointer-events: none;
 }
@@ -162,7 +162,7 @@ a.list-group-item, .list-group-item-action {
     border: 1px solid rgba(0,0,0,0.125);
 }
 .list-group-item.active:not(.disabled)::before {
-    background-color: #ac32e4;
+    background-color: #83072D;
 }
 
 .list-group-item::before {
@@ -174,4 +174,14 @@ a.list-group-item, .list-group-item-action {
     height: 100%;
     background-color: transparent;
     content: '';
+}
+
+.footer {
+    position: fixed; /* Fija la posición del footer */
+    left: 0; /* Lo alinea a la izquierda */
+    bottom: 0; /* Lo sitúa en la parte inferior */
+    width: 100%; /* Ocupa todo el ancho */
+    text-align: center; /* Alinea el contenido al centro */
+    background-color: #f8f9fa; /* Cambia el color de fondo si es necesario */
+    padding: 20px 0; /* Añade un poco de espacio alrededor del contenido */
 }
