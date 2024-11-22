@@ -245,25 +245,25 @@ class HomeController extends Controller
     }
 
     public function account(){
-        $userId = Auth::id(); // Get the authenticated user's ID
-        $loans = Loan::where('user_id', $userId)->get(); // Search for loans by user ID
-        return view('account', compact('loans')); // Pass the loans to the view
+        $userId = Auth::id(); // Obtener el ID del usuario autenticado
+        $loans = Loan::where('user_id', $userId)->get(); // Buscar los préstamos por ID de usuario
+        return view('account', compact('loans')); // Pasar los préstamos a la vista
 
     }
 
     public function filter_loans(Request $request){
-    $userId = Auth::id(); // Get the authenticated user's ID
+    $userId = Auth::id(); // Obtener el ID del usuario autenticado
 
-    // Get the selected filter value
+    // Obtener el valor del filtro seleccionado
     $filter = $request->input('filter');
 
-    // Get the loans based on the selected filter
+    // Obtener los préstamos según el filtro seleccionado
     if ($filter == 'active') {
-        $loans = Loan::where('user_id', $userId)->where('active', 0)->get(); // Filter active loans for the authenticated user
+        $loans = Loan::where('user_id', $userId)->where('active', 0)->get(); // Filtrar los préstamos activos del usuario autenticado
     } elseif ($filter == 'inactive') {
-        $loans = Loan::where('user_id', $userId)->where('active', 1)->get(); // Filter inactive loans for the authenticated user
+        $loans = Loan::where('user_id', $userId)->where('active', 1)->get(); // Filtrar los préstamos inactivos del usuario autenticado
     } else {
-        $loans = Loan::where('user_id', $userId)->get(); // Get all loans for the authenticated user
+        $loans = Loan::where('user_id', $userId)->get(); // Obtener todos los préstamos del usuario autenticado
     }
 
     return view('account', compact('loans'));
