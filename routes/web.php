@@ -14,6 +14,7 @@ use App\Http\Controllers\PaypalController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);
 
 Route::get('/', [HomeController::class, "index"])->name("index");
 Route::get('/index', [HomeController::class, "index"])->name("index");

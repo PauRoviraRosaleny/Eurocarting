@@ -63,15 +63,15 @@
         <form action="{{ route('searchCars') }}" method="GET" class="searchForm">
             @csrf
             <div class="mb-3 text-center">
-                <label for="startDate" class="form-label">Fecha de recogida:</label>
+                <label for="startDate" class="form-label">{{__('messages.Fechaderecogida:')}}</label>
                 <input type="text" id="startDate" name="startDate" class="form-control text-center" placeholder="" value="{{ $startDate ?? old('startDate') }}">
             </div>
             <div class="mb-3 text-center">
-                <label for="endDate" class="form-label">Fecha de devolución:</label>
+                <label for="endDate" class="form-label">{{__('messages.Fechadedevolución:')}}</label>
                 <input type="text" id="endDate" name="endDate" class="form-control text-center" placeholder="" value="{{ $endDate ?? old('endDate') }}">
             </div>
             <div class="text-center">
-                <button type="submit" class="btn btn-danger searchCars" name="searchCars">Buscar</button>
+                <button type="submit" class="btn btn-danger searchCars" name="searchCars">{{__('messages.Buscar')}}</button>
             </div>
         </form>
     </div>

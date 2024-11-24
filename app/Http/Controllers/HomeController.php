@@ -415,5 +415,4 @@ class HomeController extends Controller
 
         return redirect('/contact')->with('status', '¡Mensaje enviado correctamente!');
     }
-
 }
