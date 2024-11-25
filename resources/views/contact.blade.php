@@ -9,22 +9,22 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col-md-6 offset-md-3">
-      <h2 class="text-center mb-4">Contacto</h2>
+      <h2 class="text-center mb-4">{{__('messages.Contacto')}}</h2>
       <form method="POST" action="{{ route('contact.send') }}">
         @csrf
         <div class="form-group">
-          <label for="name">Nombre</label>
-          <input type="text" class="form-control" id="name" name="name" placeholder="Nombre" required>
+          <label for="name">{{__('messages.Nombre')}}</label>
+          <input type="text" class="form-control" id="name" name="name" placeholder="{{__('messages.Nombre')}}" required>
         </div>
         <div class="form-group">
-          <label for="email">Correo Electrónico</label>
-          <input type="email" class="form-control" id="email" name="email" placeholder="Correo Electrónico" required>
+          <label for="email">{{__('messages.Email')}}</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="{{__('messages.Email')}}" required>
         </div>
         <div class="form-group">
-          <label for="message">Mensaje</label>
-          <textarea class="form-control" id="message" name="message" rows="5" placeholder="Mensaje" required></textarea>
+          <label for="message">{{__('messages.Mensaje')}}</label>
+          <textarea class="form-control" id="message" name="message" rows="5" placeholder="{{__('messages.Mensaje')}}" required></textarea>
         </div>
-        <button type="submit" class="btn btn-danger btn-block">Enviar Mensaje</button>
+        <button type="submit" class="btn btn-danger btn-block">{{__('messages.EnviarMensaje')}}</button>
       </form>
     </div>
   </div>

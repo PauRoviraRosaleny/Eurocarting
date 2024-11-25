@@ -43,17 +43,17 @@
        @csrf
        <div class="col-md-4 col-6 mb-3 me-3">
            <div class="mb-3">
-               <label for="startDate" class="form-label">Fecha de recogida:</label>
+               <label for="startDate" class="form-label">{{__('messages.Fechaderecogida')}}:</label>
                <input type="text" id="startDate" name="startDate" class="form-control" placeholder="" value="{{ $startDate ?? old('startDate') }}">
            </div>
        </div>
        <div class="col-md-4 col-6 mb-3 me-3">
            <div class="mb-3">
-               <label for="endDate" class="form-label">Fecha de devolución:</label>
+               <label for="endDate" class="form-label">{{__('messages.Fechadedevolución')}}:</label>
                <input type="text" id="endDate" name="endDate" class="form-control" placeholder="" value="{{ $endDate ?? old('endDate') }}">
            </div>
        </div>
-       <button type="submit" class="btn btn-danger" name="searchCars">Buscar Vehiculos</button>
+       <button type="submit" class="btn btn-danger" name="searchCars">{{__('messages.BuscarVehiculos')}}</button>
     </form>
 </div>
 
@@ -66,10 +66,10 @@
             <form action="{{route('searchFilters')}}" method="GET">
                 @csrf
                 <!-- Aquí puedes agregar los elementos de filtro -->
-                <h4>Marcas</h4>
+                <h4>{{__('messages.Marca')}}</h4>
                 <!-- Por ejemplo, un filtro por marca -->
                 <select name="brand" class="form-select">
-                    <option value="all" selected>Todas</option>
+                    <option value="all" selected>{{__('messages.Todas')}}</option>
                     @foreach ($brands as $brand)
                         <option value="{{ $brand->brand }}"
                             @if (isset($_GET['brand']))
@@ -82,19 +82,19 @@
                 </select>
                 <br>
 
-                <h4>Precio</h4>
+                <h4>{{__('messages.Precio')}}</h4>
                 <!-- Slider de rango de precios -->
                 <div class="mb-3">
-                    <label for="priceRangeMin" class="form-label">Mínimo:</label>
+                    <label for="priceRangeMin" class="form-label">{{__('messages.Minimo')}}:</label>
                     <input type="number" class="form-control" id="priceRangeMin" name="priceRangeMin" value="{{ isset($_GET['priceRangeMin']) ? $_GET['priceRangeMin'] : 0 }}" min="0" max="10000">
                 </div>
                 <div class="mb-3">
-                    <label for="priceRangeMax" class="form-label">Máximo:</label>
+                    <label for="priceRangeMax" class="form-label">{{__('messages.Maximo')}}:</label>
                     <input type="number" class="form-control" id="priceRangeMax" name="priceRangeMax" value="{{ isset($_GET['priceRangeMax']) ? $_GET['priceRangeMax'] : 10000 }}" min="0" max="10000">
                 </div>
                 <br>
 
-                <h4>Transmisión</h4>
+                <h4>{{__('messages.Transmision')}}</h4>
                 <select name="transmission" class="form-select">
                     <option value="all" selected>Todas</option>
                     @foreach ($transmissions as $transmission)
@@ -109,7 +109,7 @@
                 </select>
                 <br>
 
-                <h4>Motor</h4>
+                <h4>{{__('messages.Motor')}}</h4>
                 <select name="engine" class="form-select">
                     <option value="all" selected>Todos</option>
                     @foreach ($engines as $engine)
@@ -124,22 +124,22 @@
                 </select>
                 <br>
 
-                <h4>Plazas</h4>
+                <h4>{{__('messages.Plazas')}}</h4>
                 <div class="mt-1">
                     <input type="checkbox" id="seats" name="seats" value="1" {{ isset($_GET['seats']) && $_GET['seats'] == 1 ? 'checked' : ''}}>
-                    <label for="seats">Más de 5 plazas</label>
+                    <label for="seats">{{__('messages.Plazas2')}}</label>
                 </div>
                 <br>
 
-                <h4>Aire acondicionado</h4>
+                <h4>{{__('messages.AireAcondicionado')}}</h4>
                 <div class="mt-1">
                     <input type="checkbox" id="air-conditioning" name="air_conditioning" value="2" {{ isset($_GET['air_conditioning']) && $_GET['air_conditioning'] == 2 ? 'checked' : ''}}>
-                    <label for="air-conditioning">Aire acondicionado</label>
+                    <label for="air-conditioning">{{__('messages.AireAcondicionado')}}</label>
                 </div>
                 <br>
                 <input type="hidden" id="hiddenStartDate" name="hiddenStartDate" value="{{ $startDate ?? old('startDate') }}">
                 <input type="hidden" id="hiddenEndDate" name="hiddenEndDate" value="{{ $endDate ?? old('endDate') }}">
-                <button type="submit" class="btn btn-danger">Filtrar</button>
+                <button type="submit" class="btn btn-danger">{{__('messages.Filtrar')}}</button>
             </form>
         </div>
         <!-- Tarjetas de coches -->
@@ -152,7 +152,7 @@
                                 <div class="p-2 bg-white border rounded">
                                     <div class="row">
                                         <div class="col-md-4 mt-1 text-center">
-                                            <h3>{{ $car->brand }} {{ $car->model }}</h3><p>o similar</p>
+                                            <h3>{{ $car->brand }} {{ $car->model }}</h3><p>{{__('messages.Similar')}}</p>
                                             <img class="img-fluid img-responsive rounded product-image" src="{{asset($car->image)}}" style="max-height: 200px; margin-bottom: 20px;">
                                         </div>
                                         <div class="col-md-5 mt-1 d-flex justify-content-center align-items-center">
@@ -167,21 +167,21 @@
                                         </div>
                                         <div class="align-items-center col-md-3 border-left mt-1 d-flex flex-column justify-content-center">
                                             <div class="align-items-center">
-                                                <h4 class="mr-1"> {{ $car->price }}€/día</h4>
-                                                <p class="">( {{ $car->price }}€ 1 día )</p>
+                                                <h4 class="mr-1"> {{ $car->price }}€/{{__('messages.Dia')}}</h4>
+                                                <p class="">( {{ $car->price }}€ 1 {{__('messages.Dia')}} )</p>
                                             </div>
                                             <div class="d-flex flex-column mt-4">
                                                 @auth
                                                     @if (Auth::user()->role == 'admin')
                                                         <form action="{{ route('edit', $car->id) }}" method="GET">
-                                                            <button name="details" class="btn btn-danger btn-sm" style="width: 150px;">Editar</button>
+                                                            <button name="details" class="btn btn-danger btn-sm" style="width: 150px;">{{__('messages.Editar')}}</button>
                                                         </form>
                                                     @else
                                                         <form action="{{ route('details', $car->id) }}" method="GET">
                                                             <input type="hidden" id="hiddenStartDate" name="hiddenStartDate" value="{{ $startDate ?? old('startDate') }}">
                                                             <input type="hidden" id="hiddenEndDate" name="hiddenEndDate" value="{{ $endDate ?? old('endDate') }}">
                                                             <input type="text" id="" name="" disabled value="" style="background-color: white; border: none">
-                                                            <button name="details" class="btn btn-danger btn-sm" style="width: 80%; margin-left: 25px">Alquilar</button>
+                                                            <button name="details" class="btn btn-danger btn-sm" style="width: 80%; margin-left: 25px">{{__('messages.Alquilar')}}</button>
                                                         </form>
                                                     @endif
                                                 @endauth
@@ -191,7 +191,7 @@
                                                         <input type="hidden" id="hiddenStartDate" name="hiddenStartDate" value="{{ $startDate ?? old('startDate') }}">
                                                         <input type="hidden" id="hiddenEndDate" name="hiddenEndDate" value="{{ $endDate ?? old('endDate') }}">
                                                         <input type="text" id="" name="" disabled value="" style="background-color: white; border: none">
-                                                            <button name="details" class="btn btn-danger btn-sm" style="width: 80%; margin-left: 25px">Alquilar</button>
+                                                            <button name="details" class="btn btn-danger btn-sm" style="width: 80%; margin-left: 25px">{{__('messages.Alquilar')}}</button>
                                                     </form>
                                                 @endguest
                                             </div>

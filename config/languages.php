@@ -10,7 +10,7 @@ return [
         'flag-icon' => 'fr'
     ],
     'es' => [
-        'display' => 'Spanish',
+        'display' => 'Español',
         'flag-icon' => 'es'
     ],
 ];

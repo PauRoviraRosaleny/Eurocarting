@@ -29,14 +29,14 @@
                     <a class="list-group-item active" href="#">
                         <div class="d-flex justify-content-between align-items-center">
                             <div><i class="bi bi-bag mr-1 text-muted"></i>
-                                <div class="d-inline-block font-weight-medium text-uppercase">Lista de pedidos</div>
+                                <div class="d-inline-block font-weight-medium text-uppercase">{{__('messages.Listadepedidos')}}</div>
                             </div><span class="badge badge-secondary">6</span>
                         </div>
-                    </a><a class="list-group-item" href="{{route('settings')}}"><i class="bi bi-person text-muted"></i>Ajustes del perfil</a>
+                    </a><a class="list-group-item" href="{{route('settings')}}"><i class="bi bi-person text-muted"></i>{{__('messages.Ajustesdelperfil')}}</a>
                     <a class="list-group-item" href="{{route('logout')}}" tagert="__blank">
                         <div class="d-flex justify-content-between align-items-center">
                             <div><i class="bi bi-box-arrow-left mr-1 text-muted"></i>
-                                <div class="d-inline-block font-weight-medium text-uppercase">Cerrar sesión</div>
+                                <div class="d-inline-block font-weight-medium text-uppercase">{{__('messages.Cerrarsesion')}}</div>
                             </div><span class="badge badge-secondary">3</span>
                         </div>
                     </a>
@@ -47,11 +47,11 @@
         <div class="col-lg-8 pb-5">
             <div class="d-flex justify-content-end pb-3">
                 <div class="form-inline">
-                    <label class="text-muted mr-3" for="order-sort">Filtrar pedidos</label>
+                    <label class="text-muted mr-3" for="order-sort">{{__('messages.Filtrarpedidos')}}</label>
                     <select class="form-control" id="order-sort" onchange="filterLoans()">
-                        <option value="all">Todos</option>
-                        <option value="active">Activos</option>
-                        <option value="inactive">Inactivos</option>
+                        <option value="all">{{__('messages.Todos')}}</option>
+                        <option value="active">{{__('messages.Activo')}}</option>
+                        <option value="inactive">{{__('messages.Inactivo')}}</option>
                     </select>
 
                 </div>
@@ -60,11 +60,11 @@
                 <table class="table table-hover mb-0">
                     <thead>
                         <tr>
-                            <th>Pedido #</th>
-                            <th>Fecha de recogida</th>
-                            <th>Fecha de devolución</th>
-                            <th>Vehiculo</th>
-                            <th>Estado</th>
+                            <th>{{__('messages.Pedido')}} #</th>
+                            <th>{{__('messages.Fechaderecogida')}}</th>
+                            <th>{{__('messages.Fechadedevolución')}}</th>
+                            <th>{{__('messages.Vehiculo')}}</th>
+                            <th>{{__('messages.Estado')}}</th>
 
                         </tr>
                     </thead>
@@ -79,9 +79,9 @@
                             <td><span>{{$loan->end_date }}</span></td>
                             <td><span>{{$loan->car_name}}</span></td>
                             @if ($loan->active == 0)
-                            <td><span>Active</span></td>
+                            <td><span>{{__('messages.Activo')}}</span></td>
                             @else
-                            <td><span>Inactive</span></td>
+                            <td><span>{{__('messages.Inactivo')}}</span></td>
                             @endif
                         </tr>
                     @endforeach

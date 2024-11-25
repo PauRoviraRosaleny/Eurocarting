@@ -15,9 +15,9 @@
 <style>
     body{
         background-image: url('{{ asset('Uploads/background.jpg')}}');
-        background-size: cover; /* Ajusta el tamaño de la imagen para cubrir toda la página */
-        background-repeat: no-repeat; /* Evita la repetición de la imagen */
-        background-attachment: fixed; /* Fija la imagen de fondo para que no se desplace con el contenido */
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
         overflow-y: hidden;
     }
 
@@ -38,7 +38,7 @@
             startDate: 'today',
             autoclose: true,
             inline: true,
-            minDate: 0, // Set minimum date to today
+            minDate: 0,
             onSelect: function(selectedDate) {
                 $('#endDate').datepicker('option', 'minDate', selectedDate);
             }
@@ -63,11 +63,11 @@
         <form action="{{ route('searchCars') }}" method="GET" class="searchForm">
             @csrf
             <div class="mb-3 text-center">
-                <label for="startDate" class="form-label">{{__('messages.Fechaderecogida:')}}</label>
+                <label for="startDate" class="form-label">{{__('messages.Fechaderecogida')}}:</label>
                 <input type="text" id="startDate" name="startDate" class="form-control text-center" placeholder="" value="{{ $startDate ?? old('startDate') }}">
             </div>
             <div class="mb-3 text-center">
-                <label for="endDate" class="form-label">{{__('messages.Fechadedevolución:')}}</label>
+                <label for="endDate" class="form-label">{{__('messages.Fechadedevolución')}}:</label>
                 <input type="text" id="endDate" name="endDate" class="form-control text-center" placeholder="" value="{{ $endDate ?? old('endDate') }}">
             </div>
             <div class="text-center">

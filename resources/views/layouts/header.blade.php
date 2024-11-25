@@ -34,13 +34,13 @@
                       </a>
 
                       <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <li><a class="dropdown-item" href="{{ route('account') }}">Cuenta</a></li>
+                        <li><a class="dropdown-item" href="{{ route('account') }}">{{__('messages.Cuenta')}}</a></li>
                         @if( Auth::User()->role == "admin")
-                        <li><a class="dropdown-item" href="{{ route('create') }}">Añadir un coche</a></li>
+                        <li><a class="dropdown-item" href="{{ route('create') }}">{{__('messages.Añadircoche')}}</a></li>
                         @else
-                        <li><a class="dropdown-item" href="{{ route('contact') }}">Contáctanos</a></li>
+                        <li><a class="dropdown-item" href="{{ route('contact') }}">{{__('messages.Contáctanos')}}</a></li>
                         @endif
-                        <li><a class="dropdown-item" href="{{ route('logout') }}">Cerrar sesión</a></li>
+                        <li><a class="dropdown-item" href="{{ route('logout') }}">{{__('messages.Cerrarsesion')}}</a></li>
                       </ul>
                     </div>
             </div>
