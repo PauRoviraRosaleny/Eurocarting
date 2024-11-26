@@ -96,7 +96,7 @@
 
                 <h4>{{__('messages.Transmision')}}</h4>
                 <select name="transmission" class="form-select">
-                    <option value="all" selected>Todas</option>
+                    <option value="all" selected>{{__('messages.Todas')}}</option>
                     @foreach ($transmissions as $transmission)
                         <option value="{{ $transmission->transmission }}"
                             @if (isset($_GET['transmission']))
@@ -111,7 +111,7 @@
 
                 <h4>{{__('messages.Motor')}}</h4>
                 <select name="engine" class="form-select">
-                    <option value="all" selected>Todos</option>
+                    <option value="all" selected>{{__('messages.Todos')}}</option>
                     @foreach ($engines as $engine)
                         <option value="{{ $engine->engine }}"
                             @if (isset($_GET['engine']))
@@ -146,61 +146,60 @@
         <div class="col-md-9">
             @foreach ($cars as $car)
 
-                    <div class="container mt-3 mb-3">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="p-2 bg-white border rounded">
-                                    <div class="row">
-                                        <div class="col-md-4 mt-1 text-center">
-                                            <h3>{{ $car->brand }} {{ $car->model }}</h3><p>{{__('messages.Similar')}}</p>
-                                            <img class="img-fluid img-responsive rounded product-image" src="{{asset($car->image)}}" style="max-height: 200px; margin-bottom: 20px;">
+                <div class="container mt-3 mb-3">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="p-2 bg-white border rounded">
+                                <div class="row">
+                                    <div class="col-md-4 mt-1 text-center">
+                                        <h3>{{ $car->brand }} {{ $car->model }}</h3><p>{{__('messages.Similar')}}</p>
+                                        <img class="img-fluid img-responsive rounded product-image" src="{{asset($car->image)}}" style="max-height: 200px; margin-bottom: 20px;">
+                                    </div>
+                                    <div class="col-md-5 mt-1 d-flex justify-content-center align-items-center">
+                                        <div class="d-flex flex-wrap">
+                                            <span class="data mb-2 mr-3" title="{{ $car->transmission }}"><img src="{{asset('/Uploads/Icons/gearbox.png')}}" alt="" class="icon"> {{ $car->transmission }}</span>
+                                            <span class="data mb-2 mr-3" title="{{ $car->engine }}"><img src="{{asset('/Uploads/Icons/gas.png')}}" alt="" class="icon"> {{ $car->engine }}</span>
+                                            <span class="data mb-2 mr-3" title="Nº de puertas"><img src="{{asset('/Uploads/Icons/door.png')}}" alt="" class="icon"> {{ $car->doors }}</span>
+                                            <span class="data mb-2 mr-3" title="Nº de bolsas"><img src="{{asset('/Uploads/Icons/bag.png')}}" alt="" class="icon"> {{ $car->bags }}</span>
+                                            <span class="data mb-2 mr-3" title="Nº de plazas"><img src="{{asset('/Uploads/Icons/seat.png')}}" alt="" class="icon">{{ $car->seats }}</span>
+                                            <span class="data mb-2" title="Aire acondicionado"><img src="{{asset('/Uploads/Icons/ac.png')}}" alt="" class="icon">@if ($car->air_conditioning == 0) {{__('messages.Si')}} @else {{__('messages.No')}} @endif</span>
                                         </div>
-                                        <div class="col-md-5 mt-1 d-flex justify-content-center align-items-center">
-                                            <div class="d-flex flex-wrap">
-                                                <span class="data mb-2 mr-3" title="{{ $car->transmission }}"><img src="{{asset('/Uploads/Icons/gearbox.png')}}" alt="" class="icon"> {{ $car->transmission }}</span>
-                                                <span class="data mb-2 mr-3" title="{{ $car->engine }}"><img src="{{asset('/Uploads/Icons/gas.png')}}" alt="" class="icon"> {{ $car->engine }}</span>
-                                                <span class="data mb-2 mr-3" title="Nº de puertas"><img src="{{asset('/Uploads/Icons/door.png')}}" alt="" class="icon"> {{ $car->doors }}</span>
-                                                <span class="data mb-2 mr-3" title="Nº de bolsas"><img src="{{asset('/Uploads/Icons/bag.png')}}" alt="" class="icon"> {{ $car->bags }}</span>
-                                                <span class="data mb-2 mr-3" title="Nº de plazas"><img src="{{asset('/Uploads/Icons/seat.png')}}" alt="" class="icon">{{ $car->seats }}</span>
-                                                <span class="data mb-2" title="Aire acondicionado"><img src="{{asset('/Uploads/Icons/ac.png')}}" alt="" class="icon">@if ($car->air_conditioning == 0) Si @else No @endif</span>
-                                            </div>
+                                    </div>
+                                    <div class="align-items-center col-md-3 border-left mt-1 d-flex flex-column justify-content-center">
+                                        <div class="align-items-center">
+                                            <h4 class="mr-1"> {{ $car->price }}€/{{__('messages.Dia')}}</h4>
+                                            <p class="">( {{ $car->price }}€ 1 {{__('messages.Dia')}} )</p>
                                         </div>
-                                        <div class="align-items-center col-md-3 border-left mt-1 d-flex flex-column justify-content-center">
-                                            <div class="align-items-center">
-                                                <h4 class="mr-1"> {{ $car->price }}€/{{__('messages.Dia')}}</h4>
-                                                <p class="">( {{ $car->price }}€ 1 {{__('messages.Dia')}} )</p>
-                                            </div>
-                                            <div class="d-flex flex-column mt-4">
-                                                @auth
-                                                    @if (Auth::user()->role == 'admin')
-                                                        <form action="{{ route('edit', $car->id) }}" method="GET">
-                                                            <button name="details" class="btn btn-danger btn-sm" style="width: 150px;">{{__('messages.Editar')}}</button>
-                                                        </form>
-                                                    @else
-                                                        <form action="{{ route('details', $car->id) }}" method="GET">
-                                                            <input type="hidden" id="hiddenStartDate" name="hiddenStartDate" value="{{ $startDate ?? old('startDate') }}">
-                                                            <input type="hidden" id="hiddenEndDate" name="hiddenEndDate" value="{{ $endDate ?? old('endDate') }}">
-                                                            <input type="text" id="" name="" disabled value="" style="background-color: white; border: none">
-                                                            <button name="details" class="btn btn-danger btn-sm" style="width: 80%; margin-left: 25px">{{__('messages.Alquilar')}}</button>
-                                                        </form>
-                                                    @endif
-                                                @endauth
-
-                                                @guest
+                                        <div class="d-flex flex-column mt-4">
+                                            @auth
+                                                @if (Auth::user()->role == 'admin')
+                                                    <form action="{{ route('edit', $car->id) }}" method="GET">
+                                                        <button name="details" class="btn btn-danger btn-sm" style="width: 150px;">{{__('messages.Editar')}}</button>
+                                                    </form>
+                                                @else
                                                     <form action="{{ route('details', $car->id) }}" method="GET">
                                                         <input type="hidden" id="hiddenStartDate" name="hiddenStartDate" value="{{ $startDate ?? old('startDate') }}">
                                                         <input type="hidden" id="hiddenEndDate" name="hiddenEndDate" value="{{ $endDate ?? old('endDate') }}">
                                                         <input type="text" id="" name="" disabled value="" style="background-color: white; border: none">
-                                                            <button name="details" class="btn btn-danger btn-sm" style="width: 80%; margin-left: 25px">{{__('messages.Alquilar')}}</button>
+                                                        <button name="details" class="btn btn-danger btn-sm" style="width: 80%; margin-left: 25px">{{__('messages.Alquilar')}}</button>
                                                     </form>
-                                                @endguest
-                                            </div>
+                                                @endif
+                                            @endauth
+                                         @guest
+                                                <form action="{{ route('details', $car->id) }}" method="GET">
+                                                    <input type="hidden" id="hiddenStartDate" name="hiddenStartDate" value="{{ $startDate ?? old('startDate') }}">
+                                                    <input type="hidden" id="hiddenEndDate" name="hiddenEndDate" value="{{ $endDate ?? old('endDate') }}">
+                                                    <input type="text" id="" name="" disabled value="" style="background-color: white; border: none">
+                                                        <button name="details" class="btn btn-danger btn-sm" style="width: 80%; margin-left: 25px">{{__('messages.Alquilar')}}</button>
+                                                </form>
+                                            @endguest
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
             @endforeach
         </div>
     </div>

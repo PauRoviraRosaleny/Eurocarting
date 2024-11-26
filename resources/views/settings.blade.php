@@ -29,14 +29,14 @@
                     <a class="list-group-item" href="{{route('account')}}">
                         <div class="d-flex justify-content-between align-items-center">
                             <div><i class="bi bi-bag mr-1 text-muted"></i>
-                                <div class="d-inline-block font-weight-medium text-uppercase">Lista de pedidos</div>
+                                <div class="d-inline-block font-weight-medium text-uppercase">{{__('messages.Listadepedidos')}}</div>
                             </div><span class="badge badge-secondary">6</span>
                         </div>
-                    </a><a class="list-group-item active" ><i class="bi bi-person text-muted"></i>Ajustes del perfil</a>
+                    </a><a class="list-group-item active" ><i class="bi bi-person text-muted"></i>{{__('messages.Ajustesdelperfil')}}</a>
                     <a class="list-group-item" href="{{route('logout')}}" tagert="__blank">
                         <div class="d-flex justify-content-between align-items-center">
                             <div><i class="bi bi-box-arrow-left mr-1 text-muted"></i>
-                                <div class="d-inline-block font-weight-medium text-uppercase">Cerrar Sesión</div>
+                                <div class="d-inline-block font-weight-medium text-uppercase">{{__('messages.Cerrarsesion')}}</div>
                             </div><span class="badge badge-secondary">3</span>
                         </div>
                     </a>
@@ -49,38 +49,38 @@
                 @csrf
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="account-fn">Nombre</label>
+                        <label for="account-fn">{{__('messages.Nombre')}}</label>
                         <input class="form-control" type="text" id="account-fn" name="name" value="{{Auth::user()->name}}" required="">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="account-email">E-mail</label>
+                        <label for="account-email">{{__('messages.Email')}}</label>
                         <input class="form-control" type="email" id="account-email" name="email" value="{{Auth::user()->email}}" disabled="">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="account-phone">Número de teléfono</label>
+                        <label for="account-phone">{{__('messages.Numerodetelefono')}}</label>
                         <input class="form-control" type="text" id="account-phone" name="phone" value="{{Auth::user()->phone}}" required="">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="account-pass">Nueva Contraseña</label>
+                        <label for="account-pass">{{__('messages.NuevaContraseña')}}</label>
                         <input class="form-control" type="password" id="account-pass" name="password">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="account-confirm-pass">Confirmar Contraseña</label>
+                        <label for="account-confirm-pass">{{__('messages.ConfirmarContraseña')}}</label>
                         <input class="form-control" type="password" id="account-confirm-pass" name="password_confirmation">
                     </div>
                 </div>
                 <div class="col-12">
                     <hr class="mt-2 mb-3">
                     <div class="d-flex flex-wrap justify-content-between align-items-center">
-                        <button class="btn btn-style-1 btn-danger" type="submit" data-toast="" data-toast-position="topRight" data-toast-type="success" data-toast-icon="fe-icon-check-circle" data-toast-title="Success!" data-toast-message="Your profile updated successfuly.">Actualizar Perfil</button>
+                        <button class="btn btn-style-1 btn-danger" type="submit" data-toast="" data-toast-position="topRight" data-toast-type="success" data-toast-icon="fe-icon-check-circle" data-toast-title="Success!" data-toast-message="Your profile updated successfuly.">{{__('messages.ActualizarPerfil')}}</button>
                     </div>
                 </div>
             </form>

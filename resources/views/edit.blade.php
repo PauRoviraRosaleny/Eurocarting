@@ -35,68 +35,68 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="account-fn">Modelo</label>
+                                <label for="account-fn">{{__('messages.Modelo')}}</label>
                                 <input class="form-control" type="text" id="account-fn" name="model" value="{{ $car->model}}" required="">
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="account-fn">Marca</label>
+                                <label for="account-fn">{{__('messages.Marca')}}</label>
                                 <input class="form-control" type="text" id="account-fn" name="brand" value="{{ $car->brand}}" required="">
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="account-fn">Precio</label>
+                                <label for="account-fn">{{__('messages.Precio')}}</label>
                                 <input class="form-control" type="number" id="account-fn" name="price" value="{{ $car->price}}" required="">
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="account-fn">Plazas</label>
+                                <label for="account-fn">{{__('messages.Plazas')}}</label>
                                 <input class="form-control" type="number" id="account-fn" name="seats" value="{{ $car->seats}}" required="">
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="account-fn">Puertas</label>
+                                <label for="account-fn">{{__('messages.Puertas')}}</label>
                                 <input class="form-control" type="number" id="account-fn" name="doors" value="{{ $car->doors}}" required="">
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="account-fn">Bolsas</label>
+                                <label for="account-fn">{{__('messages.Bolsas')}}</label>
                                 <input class="form-control" type="number" id="account-fn" name="bags" value="{{ $car->bags}}" required="">
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="engine">Motor</label>
+                                <label for="engine">{{__('messages.Motor')}}</label>
                                 <select class="form-select" id="engine" name="engine" >
-                                    <option value="" disabled>Selecciona un tipo de motor</option>
-                                    <option value="Gasoline" {{ $car->engine === 'Gasoline' ? 'selected' : '' }}>Gasolina</option>
-                                    <option value="Diesel" {{ $car->engine === 'Diesel' ? 'selected' : '' }}>Diesel</option>
-                                    <option value="Electric" {{ $car->engine === 'Electric' ? 'selected' : '' }}>Eléctrico</option>
+                                    <option value="" disabled>{{__('messages.SeleccionaMotor')}}</option>
+                                    <option value="Gasoline" {{ $car->engine === 'Gasoline' ? 'selected' : '' }}>{{__('messages.Gasolina')}}</option>
+                                    <option value="Diesel" {{ $car->engine === 'Diesel' ? 'selected' : '' }}>{{__('messages.Diesel')}}</option>
+                                    <option value="Electric" {{ $car->engine === 'Electric' ? 'selected' : '' }}>{{__('messages.Electrico')}}</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="transmission">Transmisión</label>
+                                <label for="transmission">{{__('messages.Transmision')}}</label>
                                 <select class="form-select" id="transmission" name="transmission">
-                                    <option value="" disabled>Selecciona una transmisión</option>
-                                    <option value="Manual" {{ $car->transmission === 'Manual' ? 'selected' : '' }}>Manual</option>
-                                    <option value="Automatic" {{ $car->transmission === 'Automatic' ? 'selected' : '' }}>Automática</option>
+                                    <option value="" disabled>{{__('messages.SeleccionaTransmision')}}</option>
+                                    <option value="Manual" {{ $car->transmission === 'Manual' ? 'selected' : '' }}>{{__('messages.Manual')}}</option>
+                                    <option value="Automatic" {{ $car->transmission === 'Automatic' ? 'selected' : '' }}> {{__('messages.Automatica')}}</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="air_conditioning">Aire acondicionado</label>
+                                <label for="air_conditioning">{{__('messages.AireAcondicionado')}}</label>
                                 <select class="form-select" id="air_conditioning" name="air_conditioning">
-                                    <option value="" disabled>Selecciona una opción</option>
-                                    <option value="0" {{ $car->air_conditioning == 0 ? 'selected' : '' }}>Si</option>
-                                    <option value="1" {{ $car->air_conditioning == 1 ? 'selected' : '' }}>No</option>
+                                    <option value="" disabled>{{__('messages.SeleccionaOpcion')}}</option>
+                                    <option value="0" {{ $car->air_conditioning == 0 ? 'selected' : '' }}>{{__('messages.Si')}}</option>
+                                    <option value="1" {{ $car->air_conditioning == 1 ? 'selected' : '' }}>{{__('messages.No')}}</option>
                                 </select>
                             </div>
                         </div>
@@ -106,7 +106,7 @@
                 <div class="col-12">
                     <hr class="mt-2 mb-3">
                     <div class="d-flex flex-wrap justify-content-between align-items-center">
-                        <button class="btn btn-style-1 btn-danger" type="submit" data-toast="" data-toast-position="topRight" data-toast-type="success" data-toast-icon="fe-icon-check-circle" data-toast-title="Success!" data-toast-message="Your profile updated successfuly.">Actualizar Vehículo</button>
+                        <button class="btn btn-style-1 btn-danger" type="submit" data-toast="" data-toast-position="topRight" data-toast-type="success" data-toast-icon="fe-icon-check-circle" data-toast-title="Success!" data-toast-message="Your profile updated successfuly.">{{__('messages.ActualizarVehiculo')}}</button>
                     </div>
                 </div>
 

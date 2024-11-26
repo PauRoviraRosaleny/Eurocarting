@@ -30,13 +30,13 @@
             <div class="text-end">
                     <div class="dropdown">
                       <a class="btn btn-secondary dropdown-toggle" style="background-color: #dc3545" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                          Bienvenido, {{(Auth::user()->name)}}&nbsp;
+                          {{__('messages.Bienvenido')}}, {{(Auth::user()->name)}}&nbsp;
                       </a>
 
                       <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         <li><a class="dropdown-item" href="{{ route('account') }}">{{__('messages.Cuenta')}}</a></li>
                         @if( Auth::User()->role == "admin")
-                        <li><a class="dropdown-item" href="{{ route('create') }}">{{__('messages.Añadircoche')}}</a></li>
+                        <li><a class="dropdown-item" href="{{ route('create') }}">{{__('messages.AñadirVehiculo')}}</a></li>
                         @else
                         <li><a class="dropdown-item" href="{{ route('contact') }}">{{__('messages.Contáctanos')}}</a></li>
                         @endif
